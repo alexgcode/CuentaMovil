@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CuentaMovil</string>
-    <string name="txt_description_name">Descripción:</string>
+    <string name="txt_description_spend_name">Descripción del Gasto:</string>
+    <string name="txt_description_income_name">Descripción del Ingreso:</string>
     <string name="txt_amount_name">Monto:</string>
     <string name="btn_add">Añadir</string>
     <string name="txt_day_spended_text">Gasto del día</string>

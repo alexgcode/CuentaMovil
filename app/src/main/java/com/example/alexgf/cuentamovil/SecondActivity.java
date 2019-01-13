@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class SecondActivity extends AppCompatActivity {
 
     private TextView tv1, tv2;
+    private Float expense, residue, income;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,20 @@ public class SecondActivity extends AppCompatActivity {
         tv2 = (TextView)findViewById(R.id.txt_residue);
 
         SharedPreferences preferencias = getSharedPreferences("expenses", Context.MODE_PRIVATE);
-        tv1.setText(preferencias.getString("amount",""));
+        expense = Float.parseFloat(preferencias.getString("amount","0"));
+
+        SharedPreferences pref = getSharedPreferences("residue", Context.MODE_PRIVATE);
+        income = Float.parseFloat(pref.getString("amount","0"));
+
+        residue = income - expense;
+
+        tv1.setText(String.valueOf(expense));
+        tv2.setText(String.valueOf(residue));
     }
 
     public void addIncome(View view){
-
+        Intent i = new Intent(this, ThirdActivity.class);
+        startActivity(i);
     }
 
     public void addSpend(View view){
