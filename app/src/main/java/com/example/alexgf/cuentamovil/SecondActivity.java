@@ -1,6 +1,8 @@
 package com.example.alexgf.cuentamovil;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,16 +20,16 @@ public class SecondActivity extends AppCompatActivity {
         tv1 = (TextView)findViewById(R.id.txt_day_expense);
         tv2 = (TextView)findViewById(R.id.txt_residue);
 
-        String expense = getIntent().getStringExtra("expense");
-        tv1.setText(expense);
+        SharedPreferences preferencias = getSharedPreferences("expenses", Context.MODE_PRIVATE);
+        tv1.setText(preferencias.getString("amount",""));
     }
 
     public void addIncome(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+
     }
 
     public void addSpend(View view){
-
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }
