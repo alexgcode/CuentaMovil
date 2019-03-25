@@ -58,13 +58,21 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="24dp"
         android:onClick="addAmount"
         android:text="@string/btn_add"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_amount" />
+
+    <TextView
+        android:id="@+id/txt_view11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="error"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="422dp" />
 
 </android.support.constraint.ConstraintLayout>
