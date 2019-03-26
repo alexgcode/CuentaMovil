@@ -6,28 +6,28 @@ public class Expense {
     private int id;
     private String description;
     private Float amount;
-    private Date date;
+    private String date;
 
     public Expense(String description, Float amount) {
         this.description = description;
         this.amount = amount;
     }
 
-    public Expense(String description, Float amount, Date date) {
+    public Expense(String description, Float amount, String date) {
         this.description = description;
         this.amount = amount;
         this.date = date;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
@@ -43,11 +43,11 @@ public class Expense {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

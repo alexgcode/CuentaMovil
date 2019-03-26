@@ -12,13 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alexgf.cuentamovil.api.ApiServices;
 import com.example.alexgf.cuentamovil.api.Expense;
 import com.example.alexgf.cuentamovil.api.ExpenseRespond;
 import com.example.alexgf.cuentamovil.api.StatusPost;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import retrofit2.Call;
@@ -62,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         String stringDesc = et1.getText().toString();   //text of description
         String stringAmount = et2.getText().toString(); //text of amount
 
+
         float amount;
 
         if(stringAmount != null){
@@ -70,7 +76,14 @@ public class MainActivity extends AppCompatActivity {
             amount = 0;
         }
 
-        Expense expense = new Expense(stringDesc, amount);
+
+        Calendar cal = Calendar.getInstance();
+        Date currentDate = cal.getTime();
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+
+
+        Expense expense = new Expense(stringDesc, amount, formatter.format(currentDate));
 
         Call<StatusPost> call = apiServices.addExpense(expense);
 
@@ -84,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 StatusPost statusPost = response.body();
-                tv1.setText(statusPost.getStatus());
+                Toast.makeText(getApplicationContext(), statusPost.getStatus(), Toast.LENGTH_SHORT).show();
+                //tv1.setText(statusPost.getStatus());
             }
 
             @Override
@@ -92,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 tv1.setText(t.getMessage());
             }
         });
+
 
 
         /*
